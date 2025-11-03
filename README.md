@@ -23,10 +23,10 @@ Goal: simple, production-minded REST API with JPA/Hibernate (Postgres), validati
 ![img.png](IMAGES/swagger.png)
 
 ## Getting Started
-1. Clone the repository:
-   ```bash
-   git clone 
-   ```
+Clone the repository:
+```bash
+  git clone 
+ ```
 
 
 ### Build Services with Docker Compose:
@@ -39,7 +39,12 @@ Goal: simple, production-minded REST API with JPA/Hibernate (Postgres), validati
  docker compose up
 ```
 
-Stop and remove volumes:
+### Stop and remove volumes:
 ```bash
  docker-compose down -v
+```
+
+### Run project with Maven:
+```bash
+  mvn spring-boot:run
 ```
