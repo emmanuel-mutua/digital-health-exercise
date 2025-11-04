@@ -9,5 +9,3 @@ public class ExerciseApplication {
         SpringApplication.run(ExerciseApplication.class, args);
     }
 }
-
-

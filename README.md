@@ -18,14 +18,10 @@ Goal: simple, production-minded REST API with JPA/Hibernate (Postgres), validati
 ## DB
 ![img.png](IMAGES/DB.png)
 
-
-### SWAGGER / OPENAPI
-![img.png](IMAGES/swagger.png)
-
 ## Getting Started
 Clone the repository:
 ```bash
-  git clone 
+  git clone https://github.com/emmanuel-mutua/digital-health-exercise
  ```
 
 
@@ -48,3 +44,15 @@ Clone the repository:
 ```bash
   mvn spring-boot:run
 ```
+
+## How to use
+Access Swagger UI at -> Includes all endpoints and: models:
+```
+ http://localhost:8080/swagger-ui/index.html
+```
+
+
+### SWAGGER / OPENAPI
+![img.png](IMAGES/swagger.png)
+
+- For any Api Request, include Header: `Authorization: DH-4321!`
