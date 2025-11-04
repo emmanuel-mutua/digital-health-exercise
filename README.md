@@ -56,3 +56,41 @@ Access Swagger UI at -> Includes all endpoints and: models:
 ![img.png](IMAGES/swagger.png)
 
 - For any Api Request, include Header: `Authorization: DH-4321!`
+
+### Run Tests
+```bash
+  mvn test
+```
+
+## Tradeoffs
+Keeping the existing database schema
+Pros: Keeps current data safe and is quick to set up.
+Cons: Can hide small database changes and may cause problems when adding new migrations later.
+
+Turning off Flyway in development or tests
+Pros: Runs faster and avoids migration errors.
+Cons: Your test database may not match what is used in production.
+
+Using your own Spring Security setup instead of the default
+Pros: You control everything and avoid the random password that Spring creates.
+Cons: Takes more setup and configuration.
+Default setup Pros: Works immediately without setup.
+Default setup Cons: Can be insecure or confusing because of the random password.
+
+Using an API key filter instead of turning off security
+Pros: Keeps the app stateless and still protected.
+Cons: You must handle authentication and user roles correctly in code.
+Turning off security Pros: Easy and fast for testing.
+Turning off security Cons: Removes important protections.
+
+Disabling security in tests or testing with real authentication
+Pros (disable): Easier and faster to test.
+Cons (disable): May miss real security bugs.
+Pros (real auth): Catches real issues early.
+Cons (real auth): Takes more setup time.
+
+Using H2 database or Postgres for tests
+Pros (H2): Very fast and runs in memory.
+Cons (H2): Works differently from Postgres, which may cause errors later.
+Pros (Postgres): Matches production closely and more reliable.
+Cons (Postgres): Slower and harder to set up.
