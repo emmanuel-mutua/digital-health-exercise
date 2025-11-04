@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.util.AntPathMatcher;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,6 +21,28 @@ public class ApiKeyAuthFilter extends OncePerRequestFilter {
 
     @Value("${app.api.key}")
     private String apiKey;
+
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
+
+    private static final String[] SWAGGER_WHITELIST = {
+            "/v3/api-docs/**",
+            "/v3/api-docs",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+            "/swagger-resources/**",
+            "/configuration/**"
+    };
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        return isSwaggerPath(path);
+    }
+
+    private boolean isSwaggerPath(String path) {
+        return java.util.Arrays.stream(SWAGGER_WHITELIST)
+                .anyMatch(pattern -> pathMatcher.match(pattern, path));
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

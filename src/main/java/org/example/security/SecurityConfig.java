@@ -1,5 +1,9 @@
 package org.example.security;
 
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,5 +54,32 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         return new InMemoryUserDetailsManager(); // — prevents generated password
     }
-}
 
+    /**
+     * Quick security for open api
+     * @return
+     */
+    @Bean
+    public OpenAPI openApi() {
+        final String securitySchemeName = "ApiKeyAuth";
+        return new OpenAPI()
+                .components(new Components()
+                        .addSecuritySchemes(securitySchemeName,
+                                new SecurityScheme()
+                                        .type(SecurityScheme.Type.APIKEY)
+                                        .in(SecurityScheme.In.HEADER)
+                                        .name("Authorization")
+                                        .description("Enter your API key")
+                        )
+                )
+                .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
+                .info(new io.swagger.v3.oas.models.info.Info()
+                        .title("Digital Health API")
+                        .version("1.0")
+                        .description("API requires Authorization header with API key"))
+                .addServersItem(new io.swagger.v3.oas.models.servers.Server()
+                        .url("/")
+                        .description("Default Server URL"));
+    }
+
+}
