@@ -1,6 +1,7 @@
 package org.example.patient.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 @Builder
 public class PatientDTO {
 
-    @NotBlank(message = "Id is required")
+    @NotNull(message = "Id is required")
     private Long id;
 
     private Long identifier;

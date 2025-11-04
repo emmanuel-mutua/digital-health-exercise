@@ -2,6 +2,7 @@ package org.example.patient.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -13,7 +14,8 @@ import java.time.LocalDate;
 @Builder
 public class CreatePatientDto {
 
-    @NotBlank(message = "Identifier is required")
+    @NotNull(message = "Identifier is required")
+    @Positive(message = "Identifier must be a positive number")
     private Long identifier;
 
     @NotBlank(message = "Given name is required")

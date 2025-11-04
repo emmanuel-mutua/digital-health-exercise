@@ -25,7 +25,7 @@ Clone the repository:
  ```
 
 
-### Build Services with Docker Compose:
+### Build Services with Docker Compose - Database + Application:
 ```bash
  docker-compose up --build -d
 ```
@@ -40,7 +40,7 @@ Clone the repository:
  docker-compose down -v
 ```
 
-### Run project with Maven:
+### Or Run project with Maven:
 ```bash
   mvn spring-boot:run
 ```
