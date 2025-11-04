@@ -1,0 +1,17 @@
+.idea
+
+target/classes
+target/generated-sources
+target/maven-status
+target/maven-archiver
+target/test-classes
+target/tmp
+target/wtpwebapps
+target/surefire-report
+*.log
+*.tmp
+*.bak
+*.swp
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
