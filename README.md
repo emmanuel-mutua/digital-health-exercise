@@ -53,9 +53,9 @@ Access Swagger UI at -> Includes all endpoints and: models:
 
 
 ### SWAGGER / OPENAPI
+- For any Api Request, include Header: `Authorization: DH-4321!`
 ![img.png](IMAGES/swagger.png)
 
-- For any Api Request, include Header: `Authorization: DH-4321!`
 
 ### Run Tests
 ```bash
