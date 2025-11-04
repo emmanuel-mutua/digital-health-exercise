@@ -45,8 +45,8 @@ Clone the repository:
   mvn spring-boot:run
 ```
 
-## How to use
-Access Swagger UI at -> Includes all endpoints and: models:
+## How to use 
+Access documentation at Swagger UI -> Includes all endpoints and: models:
 ```
  http://localhost:8080/swagger-ui/index.html
 ```
