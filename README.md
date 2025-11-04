@@ -6,6 +6,7 @@ Goal: simple, production-minded REST API with JPA/Hibernate (Postgres), validati
 ## Quick overview
 - Java 17, Maven
 - Spring Boot (Web, JPA, Validation), Postgres supported via `docker-compose`)
+- Spring Security with API Key authentication
 - API documented with Swagger/OpenAPI
 - Layered structure: controller → service → repository
 - Default port: `8080`
@@ -16,6 +17,14 @@ Goal: simple, production-minded REST API with JPA/Hibernate (Postgres), validati
 - Docker & Docker Compose (for Postgres)
 
 ## DB
+- Naming:
+- Tables: used prefix `dh_` to allow easy identification as system grows.
+- Columns: Used prefix  eg: `pat_` for Patient table columns, `enct_` for Encounter table columns. for easy identification'
+- Relationships:
+  - One-to-Many: One Patient can have multiple Encounters.
+  - Many-to-One: Each Encounter is linked to one Patient.
+  - 
+  
 ![img.png](IMAGES/DB.png)
 
 ## Getting Started
